@@ -11,29 +11,29 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Sale</span>
+                            <span class="card-title">Detalles del registro</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('sales.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('sales.index') }}"> Regresar</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Date Sale:</strong>
+                            <strong>Fecha:</strong>
                             {{ $sale->date_sale }}
                         </div>
                         <div class="form-group">
-                            <strong>Price Sale:</strong>
+                            <strong>Valor:</strong>
                             {{ $sale->price_sale }}
                         </div>
                         <div class="form-group">
-                            <strong>Type Sale:</strong>
+                            <strong>Tipo:</strong>
                             {{ $sale->type_sale }}
                         </div>
                         <div class="form-group">
-                            <strong>Description Sale:</strong>
+                            <strong>Descripción:</strong>
                             {{ $sale->description_sale }}
                         </div>
 

@@ -48,7 +48,7 @@ class ExpenseController extends Controller
         $expense = Expense::create($request->all());
 
         return redirect()->route('expenses.index')
-            ->with('success', 'Expense created successfully.');
+            ->with('success', 'Registro creado satisfactoriamente');
     }
 
     /**
@@ -91,7 +91,7 @@ class ExpenseController extends Controller
         $expense->update($request->all());
 
         return redirect()->route('expenses.index')
-            ->with('success', 'Expense updated successfully');
+            ->with('success', 'Registro actualizado sastisfactoriamente');
     }
 
     /**
@@ -104,6 +104,6 @@ class ExpenseController extends Controller
         $expense = Expense::find($id)->delete();
 
         return redirect()->route('expenses.index')
-            ->with('success', 'Expense deleted successfully');
+            ->with('success', 'Registro eliminado satisfactoriamente');
     }
 }

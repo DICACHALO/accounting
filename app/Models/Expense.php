@@ -31,7 +31,6 @@ class Expense extends Model
 		'price_expense' => 'required',
 		'type_expense' => 'required',
 		'receipt_number' => 'required',
-		'description_expense' => 'required',
     ];
 
     protected $perPage = 20;

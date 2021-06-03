@@ -2,43 +2,47 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('date_expense') }}
-            {{ Form::text('date_expense', $expense->date_expense, ['class' => 'form-control' . ($errors->has('date_expense') ? ' is-invalid' : ''), 'placeholder' => 'Date Expense']) }}
+            {{ Form::label('Fecha') }}
+            {{ Form::date('date_expense', $expense->date_expense, ['class' => 'form-control' . ($errors->has('date_expense') ? ' is-invalid' : ''), 'placeholder' => 'Date Expense']) }}
             {!! $errors->first('date_expense', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('invoice') }}
-            {{ Form::text('invoice', $expense->invoice, ['class' => 'form-control' . ($errors->has('invoice') ? ' is-invalid' : ''), 'placeholder' => 'Invoice']) }}
+            {{ Form::label('Número de factura') }}
+            {{ Form::text('invoice', $expense->invoice, ['class' => 'form-control' . ($errors->has('invoice') ? ' is-invalid' : ''), 'placeholder' => '###']) }}
             {!! $errors->first('invoice', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('merchandise_supplier') }}
-            {{ Form::text('merchandise_supplier', $expense->merchandise_supplier, ['class' => 'form-control' . ($errors->has('merchandise_supplier') ? ' is-invalid' : ''), 'placeholder' => 'Merchandise Supplier']) }}
+            {{ Form::label('Proveedor') }}
+            {{ Form::text('merchandise_supplier', $expense->merchandise_supplier, ['class' => 'form-control' . ($errors->has('merchandise_supplier') ? ' is-invalid' : ''), 'placeholder' => 'Ejemplo: Tonos']) }}
             {!! $errors->first('merchandise_supplier', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('price_expense') }}
-            {{ Form::text('price_expense', $expense->price_expense, ['class' => 'form-control' . ($errors->has('price_expense') ? ' is-invalid' : ''), 'placeholder' => 'Price Expense']) }}
+            {{ Form::label('Valor') }}
+            {{ Form::number('price_expense', $expense->price_expense, ['class' => 'form-control' . ($errors->has('price_expense') ? ' is-invalid' : ''), 'placeholder' => '$$$']) }}
             {!! $errors->first('price_expense', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('type_expense') }}
-            {{ Form::text('type_expense', $expense->type_expense, ['class' => 'form-control' . ($errors->has('type_expense') ? ' is-invalid' : ''), 'placeholder' => 'Type Expense']) }}
-            {!! $errors->first('type_expense', '<div class="invalid-feedback">:message</p>') !!}
+            {{ Form::label('Tipo de gasto') }}
+            <?php
+                $options = ['Efectivo' => 'Efectivo', 'Consignación' => 'Consignación'];
+                $selection = ['Efectivo']; 
+            ?>
+            {{ Form::select('type_expense', $options, $selection, ['class' => 'form-control'. ($errors->has('description_sale') ? ' is-invalid' : ''),]), }}
+            
         </div>
         <div class="form-group">
-            {{ Form::label('receipt_number') }}
-            {{ Form::text('receipt_number', $expense->receipt_number, ['class' => 'form-control' . ($errors->has('receipt_number') ? ' is-invalid' : ''), 'placeholder' => 'Receipt Number']) }}
+            {{ Form::label('Número de recibo') }}
+            {{ Form::text('receipt_number', $expense->receipt_number, ['class' => 'form-control' . ($errors->has('receipt_number') ? ' is-invalid' : ''), 'placeholder' => '###']) }}
             {!! $errors->first('receipt_number', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('description_expense') }}
-            {{ Form::text('description_expense', $expense->description_expense, ['class' => 'form-control' . ($errors->has('description_expense') ? ' is-invalid' : ''), 'placeholder' => 'Description Expense']) }}
+            {{ Form::label('Observaciones') }}
+            {{ Form::text('description_expense', $expense->description_expense, ['class' => 'form-control' . ($errors->has('description_expense') ? ' is-invalid' : ''), 'placeholder' => 'Campo opcional']) }}
             {!! $errors->first('description_expense', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </div>
 </div>

@@ -11,41 +11,41 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Expense</span>
+                            <span class="card-title">Detalle de gastos</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('expenses.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('expenses.index') }}"> Atrás</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Date Expense:</strong>
+                            <strong>Fecha:</strong>
                             {{ $expense->date_expense }}
                         </div>
                         <div class="form-group">
-                            <strong>Invoice:</strong>
+                            <strong>Factura:</strong>
                             {{ $expense->invoice }}
                         </div>
                         <div class="form-group">
-                            <strong>Merchandise Supplier:</strong>
+                            <strong>Proveedor:</strong>
                             {{ $expense->merchandise_supplier }}
                         </div>
                         <div class="form-group">
-                            <strong>Price Expense:</strong>
+                            <strong>Valor:</strong>
                             {{ $expense->price_expense }}
                         </div>
                         <div class="form-group">
-                            <strong>Type Expense:</strong>
+                            <strong>Tipo de gasto:</strong>
                             {{ $expense->type_expense }}
                         </div>
                         <div class="form-group">
-                            <strong>Receipt Number:</strong>
+                            <strong>Número de recibo:</strong>
                             {{ $expense->receipt_number }}
                         </div>
                         <div class="form-group">
-                            <strong>Description Expense:</strong>
+                            <strong>Descripción del gasto:</strong>
                             {{ $expense->description_expense }}
                         </div>
 
