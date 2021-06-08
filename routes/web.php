@@ -23,3 +23,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('/sales', App\Http\Controllers\SaleController::class)->middleware('auth');
 Route::resource('/expenses', App\Http\Controllers\ExpenseController::class)->middleware('auth');
+
+Route::resource('/report', App\Http\Controllers\ReportController::class)->name('report')->middleware('auth');
