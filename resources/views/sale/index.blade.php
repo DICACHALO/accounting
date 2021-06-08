@@ -77,7 +77,9 @@
                         </div>
                     </div>
                 </div>
-                {!! $sales->links() !!}
+                <div class="mt-2 mx-auto">
+                {!! $sales->links('pagination::bootstrap-4') !!}
+            </div>
             </div>
         </div>
     </div>

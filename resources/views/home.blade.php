@@ -88,7 +88,8 @@
                     </table>
                     <hr>
                       <p>Debes tener en caja:</p>   
-                      <h3 align="center"><mark>$000</mark></h3>       
+                      <h3 align="center"><mark>$000</mark></h3>
+                            
                     </div>           
                 </div>
             </div>

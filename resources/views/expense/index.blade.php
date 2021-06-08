@@ -88,7 +88,9 @@
                         </div>
                     </div>
                 </div>
-                {!! $expenses->links() !!}
+                <div class="mt-2 mx-auto">
+                {!! $expenses->links('pagination::bootstrap-4') !!}
+                </div>
             </div>
         </div>
     </div>

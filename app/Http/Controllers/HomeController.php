@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function show()
+    {
+        $users = DB::table('users')->get();
+
+            foreach ($users as $user)
+            {
+                echo $user->name;
+            }
+    }
 }
