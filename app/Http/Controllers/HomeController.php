@@ -34,5 +34,7 @@ class HomeController extends Controller
             {
                 echo $user->name;
             }
+
+         
     }
 }

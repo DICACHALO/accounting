@@ -64,7 +64,7 @@
                     <div class="card-body">
                     <table class="table table-striped">
                         <tr><td>Total de ventas: </td>
-                            <td>$0000</td>
+                            <td>#0000</td>
                         </tr>
                         <tr><td>Total de ventas por baucher: </td>
                             <td>$0000</td>
