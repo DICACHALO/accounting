@@ -47,7 +47,7 @@ tr:nth-child(even) {
                         @if ($total->day_sale_baucher == $day)
                         <td>{{'$'. number_format($total->total_sale_baucher, 0) }}</td>
                         
-                        <td>{{'total_ventas'}}</td>
+                        <td>{{ 'Hola' }}</td>
                         </tr>
                     @endif
                 @endforeach
@@ -61,6 +61,9 @@ tr:nth-child(even) {
    </tr>
 </table>
 
+{{$total_cash}}
+{{$total_baucher}}
+{{$total_sales}}
 
 </body>
 </html>

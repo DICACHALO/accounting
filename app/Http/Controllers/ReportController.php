@@ -26,8 +26,8 @@ class ReportController extends Controller
     public function exportPdf()
     {
         
-        $from = '2021-05-03 00:00:00';
-        $to =  '2021-06-08 00:00:00';
+        $from = '2021-06-03 00:00:00';
+        $to =  '2021-06-03 00:00:00';
         //$interval = new DateInterval('P1D');
         $period = new CarbonPeriod($from, $to);
 
@@ -40,8 +40,26 @@ class ReportController extends Controller
         ->select('day_sale_baucher', 'total_sale_baucher')
         ->whereBetween('day_sale_baucher', [$from, $to])
         ->get();
+                                
+        foreach($period as $day){
+            foreach($total_sale_cash as $total){
+                if ($total->day_sale_cash = $day){ 
+                        $total1 = $total_sale_cash;
+                };
+            };
+            foreach($total_sale_baucher as $total){
+                if ($total->day_sale_baucher = $day){ 
+                        $total2 = $total_sale_baucher;
+                        
+                };
+            };
+        };
 
-        $pdf   = PDF::loadView('pdf.report', compact('period', 'total_sale_cash','total_sale_baucher'));
+        $total_cash = collect($total_sale_cash)->sum('total_sale_cash');
+        $total_baucher = collect($total_sale_baucher)->sum('total_sale_baucher');
+        $total_sales = $total_cash + $total_baucher;
+
+        $pdf   = PDF::loadView('pdf.report', compact('period', 'total_sale_cash','total_sale_baucher', 'total_cash', 'total_baucher', 'total_sales'));
         return $pdf->stream('report.pdf');
     }
 }
