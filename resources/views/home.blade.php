@@ -28,14 +28,15 @@
                         <strong>Reporte:</strong>
                         </div>
                     <div class="card-body">
-                      <form method="POST" action="" >
+                      <form method="POST" action="{{route('report_total') }}" >
+                        @csrf
                           <div class="form-group">
                             <label>Selecciona una fecha inicial:</label>
-                            <input type="date" class="form-control" id="date_ini" >
+                            <input name="date_ini" value="date" type="date" class="form-control" id="date_ini" >
                           </div>
                           <div class="form-group">
                             <label>Selecciona una fecha final:</label>
-                            <input type="date" class="form-control" id="date_finish" >
+                            <input name="date_finish" value="date" type="date" class="form-control" id="date_finish" >
                           </div>
                           <button type="submit" class="btn btn-primary">Enviar</button>
                           <hr>

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +25,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
-Route::resource('/sales', App\Http\Controllers\SaleController::class)->middleware('auth');
-Route::resource('/expenses', App\Http\Controllers\ExpenseController::class)->middleware('auth');
+Route::resource('/sales', SaleController::class)->middleware('auth');
+Route::resource('/expenses', ExpenseController::class)->middleware('auth');
 
-Route::get('report-pdf', [App\Http\Controllers\ReportController::class, 'exportPdf'])->name('report')->middleware('auth');
+Route::get('report-pdf', [ReportController::class, 'exportPdf'])->name('report')->middleware('auth');
+
+Route::post('report_total', [ReportController::class, 'store'])->name('report_total')->middleware('auth');

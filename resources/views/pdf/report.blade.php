@@ -32,38 +32,22 @@ tr:nth-child(even) {
                 <th>Ventas con baucher</th>
                 <th>Total ventas</th>
             </tr>
-            
+
             @foreach($period as $day)
+                <tr><td>{{$day->format("Y-m-d")}}</td>
                 @foreach($total_sale_cash as $total)
                     @if ($total->day_sale_cash == $day)
-                        <tr>
-                            <td>{{$day->format("Y-m-d")}}</td>
-                            <td>{{'$'. number_format($total->total_sale_cash, 0) }}</td>
-
+                        <td>{{'$'. number_format($total->total_sale_cash, 0) }}</td>
                     @endif
-                @endforeach
+                @endforeach   
+               
+            @endforeach            
 
-                    @foreach($total_sale_baucher as $total)
-                        @if ($total->day_sale_baucher == $day)
-                        <td>{{'$'. number_format($total->total_sale_baucher, 0) }}</td>
-                        
-                        <td>{{ 'Hola' }}</td>
-                        </tr>
-                    @endif
-                @endforeach
-            @endforeach 
-            
-
-            
                 </tr>
             </table>
        </td>         
    </tr>
 </table>
-
-{{$total_cash}}
-{{$total_baucher}}
-{{$total_sales}}
 
 </body>
 </html>
