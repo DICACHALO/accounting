@@ -27,7 +27,7 @@ class ReportController extends Controller
     {
         
         $from = '2021-05-03 00:00:00';
-        $to =  '2021-05-30 00:00:00';
+        $to =  '2021-06-08 00:00:00';
         //$interval = new DateInterval('P1D');
         $period = new CarbonPeriod($from, $to);
 
