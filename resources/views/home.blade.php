@@ -56,18 +56,23 @@
             <div class="col-sm-4">  
                 <div class="card">
                     <div class="card-header">
-                        <strong>Estado de cuenta del día de hoy:</strong>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-striped">
 
-                            <?php 
-    
-    
-    $dtz = new DateTimeZone("America/Panama");
+                        <?php 
+                         $dtz = new DateTimeZone("America/Panama");
     $dt = new DateTime("now", $dtz);
     $today = $dt->format("Y-m-d");
-    echo $today;
+    
+                        echo "<strong>Estado de cuenta del día de hoy: ";
+                        echo $today;
+                        echo "
+                    </strong></div>
+                    <div class='card-body'>
+                        <table class='table table-striped'>";
+
+                            
+    
+    
+   
 
     
     $select1 = DB::table('sales_cash_view')->select('total_sale_cash')->where('day_sale_cash', $today)->get(); 
