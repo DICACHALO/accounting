@@ -64,8 +64,11 @@
                             <?php 
     
     
-    $today = date("Y-m-d H:i:s");
+    $dtz = new DateTimeZone("America/Panama");
+    $dt = new DateTime("now", $dtz);
+    $today = $dt->format("Y-m-d");
     echo $today;
+
     
     $select1 = DB::table('sales_cash_view')->select('total_sale_cash')->where('day_sale_cash', $today)->get(); 
     $select2 = DB::table('sales_baucher_view')->select('total_sale_baucher')->where('day_sale_baucher',$today)->get(); 
