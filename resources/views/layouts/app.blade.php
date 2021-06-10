@@ -88,7 +88,9 @@
         <main class="py-4">
             @yield('content')
 
-
+            <div class="col-sm-4">  
+                
+            </div>
         </main>
     </div>
 </body>

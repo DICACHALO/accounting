@@ -23,11 +23,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
 Route::resource('/sales', SaleController::class)->middleware('auth');
 Route::resource('/expenses', ExpenseController::class)->middleware('auth');
 
-Route::get('report-pdf', [ReportController::class, 'exportPdf'])->name('report')->middleware('auth');
-
-Route::post('report_total', [ReportController::class, 'store'])->name('report_total')->middleware('auth');
+Route::post('report_total', [ReportController::class, 'exportPDF'])->name('report_total')->middleware('auth');

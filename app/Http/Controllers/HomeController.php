@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         return view('home');
     }
 
@@ -34,5 +36,10 @@ class HomeController extends Controller
             {
                 echo $user->name;
             }
+    }
+
+    public function todayReport(){
+
+        $saludo = 'Hola desde el controlador';
     }
 }
