@@ -11,7 +11,7 @@ class ReportController extends Controller
 {
     
 
-    public function exportPdf(Request $request)
+    public function exportpdf(Request $request)
     {
         $from = $request->get('date_ini');
         $to = $request->get('date_finish');

@@ -28,4 +28,4 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 Route::resource('/sales', SaleController::class)->middleware('auth');
 Route::resource('/expenses', ExpenseController::class)->middleware('auth');
 
-Route::post('report_total', [ReportController::class, 'exportPDF'])->name('report_total')->middleware('auth');
+Route::post('report_total', [ReportController::class, 'exportpdf'])->name('report_total')->middleware('auth');
