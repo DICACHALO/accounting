@@ -71,6 +71,8 @@ footer {
          </tr>
         <tbody>
     </table>
+<br>
+<hr>    
 <p align="center"><strong> INFORME DETALLADO </strong></p>
 
 <table>
@@ -119,6 +121,7 @@ footer {
     <p> Elabora: ____________________________ &nbsp;&nbsp;&nbsp; 
         Recibe: _____________________________ 
     </p>
+    
     </footer>
 </body>
 </html>
