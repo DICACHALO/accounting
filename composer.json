@@ -17,6 +17,7 @@
         "nesbot/carbon": "^2.48",
         "dompdf/dompdf": "^1"
     },
+    
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",

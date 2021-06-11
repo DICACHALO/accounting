@@ -30,7 +30,7 @@ class Expense extends Model
 		'merchandise_supplier' => 'required',
 		'price_expense' => 'required',
 		'type_expense' => 'required',
-		'receipt_number' => 'required',
+		'receipt_number' => 'required'
     ];
 
     protected $perPage = 20;

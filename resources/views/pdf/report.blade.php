@@ -42,9 +42,10 @@ footer {
 <h3>Reporte cuadre de caja</h3>
 <hr>
 
-    <p align="center"><strong> INFORME RESUMIDO </strong></p>
-
-    <table>
+<table>
+ <tr>
+    <td>
+    <table><caption align="center"><strong> INFORME RESUMIDO </strong></caption>
         <thead>
         <tr>
             <th>Fecha del reporte</th>
@@ -71,14 +72,19 @@ footer {
          </tr>
         <tbody>
     </table>
+    </td>         
+   </tr>
+
+</table>
+
 <br>
 <hr>    
-<p align="center"><strong> INFORME DETALLADO </strong></p>
 
 <table>
  <tr>
     <td>
      <table>
+        <caption align="center"><strong> INFORME DETALLADO </strong></caption>
         <thead>
         <tr>
             <th>Fecha</th>
@@ -92,9 +98,9 @@ footer {
         </tr>
         </thead>
         <tbody>
-        @foreach ($temporal as $info)
+        @foreach ($temporary as $info)
             <tr>
-                <td>{{ $info->day_temporal }}</td>
+                <td>{{ $info->day_temporary }}</td>
                 <td>{{ number_format($info->total_sale_cash) }}</td>
                 <td>{{ number_format($info->total_sale_baucher) }}</td>
                 <td>{{ number_format($info->total_sales) }}</td>
@@ -108,10 +114,6 @@ footer {
          </tr>
         <tbody>
     </table>
-
-
-
-
    </td>         
    </tr>
 
@@ -121,7 +123,7 @@ footer {
     <p> Elabora: ____________________________ &nbsp;&nbsp;&nbsp; 
         Recibe: _____________________________ 
     </p>
-    
+
     </footer>
 </body>
 </html>

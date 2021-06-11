@@ -24,7 +24,7 @@ class Sale extends Model
     static $rules = [
 		'date_sale' => 'required',
 		'price_sale' => 'required',
-		'type_sale' => 'required',
+		'type_sale' => 'required'
 		
     ];
 

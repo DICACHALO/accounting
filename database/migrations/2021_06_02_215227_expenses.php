@@ -21,7 +21,7 @@ class Expenses extends Migration
         $table->bigInteger('price_expense');
         $table->string('type_expense');
         $table->string('receipt_number');
-        $table->text('description_expense');
+        $table->text('description_expense')->nullable();
         $table->timestamps();
     });
     }

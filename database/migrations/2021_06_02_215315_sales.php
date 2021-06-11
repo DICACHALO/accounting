@@ -18,7 +18,7 @@ class Sales extends Migration
             $table->dateTime('date_sale');
             $table->bigInteger('price_sale');
             $table->string('type_sale');
-            $table->text('description_sale');
+            $table->text('description_sale')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class Sales extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('sales');
     }
 }
