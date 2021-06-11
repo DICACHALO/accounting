@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    
-
     public function exportpdf(Request $request)
     {
         $from = $request->get('date_ini');
@@ -30,7 +28,11 @@ class ReportController extends Controller
         ->select('day_temporal', 'total_sale_cash', 'total_sale_baucher', 'total_sales', 'total_expense_cash', 'total_expense_baucher', 'total_expenses', 'total_cash_day')
         ->get();
 
-        $pdf = PDF::loadView('pdf.report', compact('temporal', 'today'));
+        $total_cash = DB::table('temporal')
+        ->get()
+        ->sum('total_cash_day');
+
+        $pdf = PDF::loadView('pdf.report', compact('temporal', 'today', 'total_cash'));
         return $pdf
         ->setPaper('letter', 'landscape')
         ->stream('report.pdf');  

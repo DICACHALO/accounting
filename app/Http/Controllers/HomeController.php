@@ -37,9 +37,4 @@ class HomeController extends Controller
                 echo $user->name;
             }
     }
-
-    public function todayReport(){
-
-        $saludo = 'Hola desde el controlador';
-    }
 }

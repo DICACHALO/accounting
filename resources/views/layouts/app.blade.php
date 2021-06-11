@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'CuadreCaja') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -85,13 +85,14 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4">            
             @yield('content')
-
-            <div class="col-sm-4">  
-                
-            </div>
         </main>
     </div>
+
+<footer class="text-center text-lg-start bg-light text-muted"> 
+    <p align="center" > @ Soluciones Primaro S.A.S. - 2021 </p> 
+</footer>
+
 </body>
 </html>

@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/home', [HomeController::class, 'index'], [ReportController::class, 'todayreport'])->name('home')->middleware('auth');
 
 Route::resource('/sales', SaleController::class)->middleware('auth');
 Route::resource('/expenses', ExpenseController::class)->middleware('auth');

@@ -26,9 +26,14 @@ tr:nth-child(even) {
 }
 
 footer {
-            color: black;
-            text-align: center;
+    color: black;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
         }
+
 </style>
 </head>
 <body>
@@ -39,45 +44,42 @@ footer {
 <table>
  <tr>
     <td>
-         <table>
-            <thead>
+     <table>
+        <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Ventas en efectivo</th>
+            <th>Ventas con baucher</th>
+            <th>Total ventas</th>
+            <th>Gastos en efectivo</th>
+            <th>Consignaciones</th>
+            <th>Total gastos</th>
+            <th>Efectivo en caja</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ($temporal as $info)
             <tr>
-                <th>Fecha</th>
-                <th>Ventas en efectivo</th>
-                <th>Ventas con baucher</th>
-                <th>Total ventas</th>
-                <th>Gastos en efectivo</th>
-                <th>Consignaciones</th>
-                <th>Total gastos</th>
-                <th>Efectivo en caja</th>
+                <td>{{ $info->day_temporal }}</td>
+                <td>{{ number_format($info->total_sale_cash) }}</td>
+                <td>{{ number_format($info->total_sale_baucher) }}</td>
+                <td>{{ number_format($info->total_sales) }}</td>
+                <td>{{ number_format($info->total_expense_cash) }}</td>
+                <td>{{ number_format($info->total_expense_baucher) }}</td>
+                <td>{{ number_format($info->total_expenses) }}</td>
+                <td>{{ number_format($info->total_cash_day) }}</td>
             </tr>
-            </thead>
-            <tbody>
-            @foreach ($temporal as $info)
-                <tr>
-                    <td>{{ $info->day_temporal }}</td>
-                    <td>{{ number_format($info->total_sale_cash) }}</td>
-                    <td>{{ number_format($info->total_sale_baucher) }}</td>
-                    <td>{{ number_format($info->total_sales) }}</td>
-                    <td>{{ number_format($info->total_expense_cash) }}</td>
-                    <td>{{ number_format($info->total_expense_baucher) }}</td>
-                    <td>{{ number_format($info->total_expenses) }}</td>
-                    <td>{{ number_format($info->total_cash_day) }}</td>
-                </tr>
-            @endforeach
-                
-               
-      
-
-                </tr>
-                <tbody>
-            </table>
-       </td>         
+        @endforeach
+         </tr>
+        <tbody>
+    </table>
+   </td>         
    </tr>
+   <h3 align="center"> Total efectivo en caja: $ {{ number_format($total_cash) }} </h3>
 </table>
-<footer>
 
-    <p>Fecha de generación del reporte: {{ $today }} </p>
-</footer>
+    <footer>
+        <p>Fecha de generación del reporte: {{ $today }} </p>
+    </footer>
 </body>
 </html>
