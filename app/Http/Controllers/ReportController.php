@@ -32,7 +32,7 @@ class ReportController extends Controller
         DB::statement("UPDATE temporary SET total_expense_baucher = total_expenses_view.total_expense_baucher FROM total_expenses_view WHERE temporary.day_temporary = total_expenses_view.day_expense_baucher");
 
         DB::statement("UPDATE temporary SET total_expenses = total_expense_cash + total_expense_baucher");
-        DB::statement("UPDATE temporary SET total_cash_day = total_sales +total_expenses");
+        DB::statement("UPDATE temporary SET total_cash_day = total_sale_cash - total_expenses");
 
         $temporary = DB::table('temporary')
         ->select('day_temporary', 'total_sale_cash', 'total_sale_baucher', 'total_sales', 'total_expense_cash', 'total_expense_baucher', 'total_expenses', 'total_cash_day')
