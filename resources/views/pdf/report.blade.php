@@ -41,6 +41,38 @@ footer {
 <br>
 <h3>Reporte cuadre de caja</h3>
 <hr>
+
+    <p align="center"><strong> INFORME RESUMIDO </strong></p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Fecha del reporte</th>
+            <th>Total ventas en efectivo</th>
+            <th>Total ventas con baucher</th>
+            <th>Total ventas</th>
+            <th>Total gastos en efectivo</th>
+            <th>Total pagos por consignación</th>
+            <th>Total gastos</th>
+            <th>Efectivo en caja</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $today }}</td>
+                <td>{{ number_format($total_sale_cash) }}</td>
+                <td>{{ number_format($total_sale_baucher) }}</td>
+                <td>{{ number_format($total_sales) }}</td>
+                <td>{{ number_format($total_expense_cash) }}</td>
+                <td>{{ number_format($total_expense_baucher) }}</td>
+                <td>{{ number_format($total_expenses) }}</td>
+                <td>{{ number_format($total_cash_day) }}</td>
+            </tr>
+         </tr>
+        <tbody>
+    </table>
+<p align="center"><strong> INFORME DETALLADO </strong></p>
+
 <table>
  <tr>
     <td>
@@ -52,7 +84,7 @@ footer {
             <th>Ventas con baucher</th>
             <th>Total ventas</th>
             <th>Gastos en efectivo</th>
-            <th>Consignaciones</th>
+            <th>Pagos por consignación</th>
             <th>Total gastos</th>
             <th>Efectivo en caja</th>
         </tr>
@@ -69,17 +101,24 @@ footer {
                 <td>{{ number_format($info->total_expenses) }}</td>
                 <td>{{ number_format($info->total_cash_day) }}</td>
             </tr>
+
         @endforeach
          </tr>
         <tbody>
     </table>
+
+
+
+
    </td>         
    </tr>
-   <h3 align="center"> Total efectivo en caja: $ {{ number_format($total_cash) }} </h3>
+
 </table>
 
-    <footer>
-        <p>Fecha de generación del reporte: {{ $today }} </p>
+<footer>
+    <p> Elabora: ____________________________ &nbsp;&nbsp;&nbsp; 
+        Recibe: _____________________________ 
+    </p>
     </footer>
 </body>
 </html>

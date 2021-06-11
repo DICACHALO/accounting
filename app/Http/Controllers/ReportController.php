@@ -28,11 +28,37 @@ class ReportController extends Controller
         ->select('day_temporal', 'total_sale_cash', 'total_sale_baucher', 'total_sales', 'total_expense_cash', 'total_expense_baucher', 'total_expenses', 'total_cash_day')
         ->get();
 
-        $total_cash = DB::table('temporal')
+        $total_sale_cash = DB::table('temporal')
+        ->get()
+        ->sum('total_sale_cash');
+
+        $total_sale_baucher = DB::table('temporal')
+        ->get()
+        ->sum('total_sale_baucher');
+
+        $total_sales = DB::table('temporal')
+        ->get()
+        ->sum('total_sales');
+
+        $total_expense_cash = DB::table('temporal')
+        ->get()
+        ->sum('total_expense_cash');
+
+        $total_expense_baucher = DB::table('temporal')
+        ->get()
+        ->sum('total_expense_baucher');
+
+        $total_expenses = DB::table('temporal')
+        ->get()
+        ->sum('total_expenses');
+
+        $total_cash_day = DB::table('temporal')
         ->get()
         ->sum('total_cash_day');
 
-        $pdf = PDF::loadView('pdf.report', compact('temporal', 'today', 'total_cash'));
+
+
+        $pdf = PDF::loadView('pdf.report', compact('temporal', 'today', 'total_sale_cash', 'total_sale_baucher', 'total_sales', 'total_expense_cash', 'total_expense_baucher', 'total_expenses', 'total_cash_day'));
         return $pdf
         ->setPaper('letter', 'landscape')
         ->stream('report.pdf');  
