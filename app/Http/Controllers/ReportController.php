@@ -18,11 +18,21 @@ class ReportController extends Controller
 
         DB::statement("DELETE from temporary");
         DB::statement("INSERT INTO temporary(day_temporary, total_sale_cash, total_sale_baucher) (SELECT day_sale_cash, total_sale_cash, total_sale_baucher FROM total_sales_view WHERE day_sale_cash BETWEEN '$from' AND '$to')");
-        DB::statement("UPDATE temporary SET total_sales = (IFNULL(total_sale_cash,0)+ IFNULL(total_sale_baucher,0))");
-        DB::statement("UPDATE temporary JOIN total_expenses_view ON temporary.day_temporary = total_expenses_view.day_expense_cash SET temporary.total_expense_cash = total_expenses_view.total_expense_cash");
-        DB::statement("UPDATE temporary JOIN total_expenses_view ON temporary.day_temporary = total_expenses_view.day_expense_baucher SET temporary.total_expense_baucher = total_expenses_view.total_expense_baucher");
-        DB::statement("UPDATE temporary SET total_expenses = (IFNULL(total_expense_cash,0)+ IFNULL(total_expense_baucher,0))");
-        DB::statement("UPDATE temporary SET total_cash_day = (IFNULL(total_sales,0)+ IFNULL(total_expenses,0))");
+        
+        DB::statement("UPDATE temporary SET total_sale_cash = 0 WHERE temporary.total_sale_cash IS NULL");
+
+        DB::statement("UPDATE temporary SET total_sale_baucher = 0 WHERE temporary.total_sale_baucher IS NULL");
+
+        DB::statement("UPDATE temporary SET total_sales = 0,  total_expense_cash=0, total_expense_baucher=0, total_expenses=0, total_cash_day=0");
+
+        DB::statement("UPDATE temporary SET total_sales = total_sale_cash +total_sale_baucher");
+
+        DB::statement("UPDATE temporary SET total_expense_cash = total_expenses_view.total_expense_cash FROM total_expenses_view WHERE temporary.day_temporary = total_expenses_view.day_expense_cash");
+
+        DB::statement("UPDATE temporary SET total_expense_baucher = total_expenses_view.total_expense_baucher FROM total_expenses_view WHERE temporary.day_temporary = total_expenses_view.day_expense_baucher");
+
+        DB::statement("UPDATE temporary SET total_expenses = total_expense_cash + total_expense_baucher");
+        DB::statement("UPDATE temporary SET total_cash_day = total_sales +total_expenses");
 
         $temporary = DB::table('temporary')
         ->select('day_temporary', 'total_sale_cash', 'total_sale_baucher', 'total_sales', 'total_expense_cash', 'total_expense_baucher', 'total_expenses', 'total_cash_day')

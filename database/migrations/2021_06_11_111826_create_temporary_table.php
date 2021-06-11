@@ -15,14 +15,14 @@ class CreateTemporaryTable extends Migration
     {
         Schema::create('temporary', function (Blueprint $table) {
 
-            $table->datetime('day_temporary');
-            $table->bigInteger('total_sale_cash');
-            $table->bigInteger('total_sale_baucher');
-            $table->bigInteger('total_sales');
-            $table->bigInteger('total_expense_cash');
-            $table->bigInteger('total_expense_baucher');
-            $table->bigInteger('total_expenses');
-            $table->bigInteger('total_cash_day');            
+            $table->datetime('day_temporary')->nullable();
+            $table->bigInteger('total_sale_cash')->nullable();
+            $table->bigInteger('total_sale_baucher')->nullable();
+            $table->bigInteger('total_sales')->nullable();
+            $table->bigInteger('total_expense_cash')->nullable();
+            $table->bigInteger('total_expense_baucher')->nullable();
+            $table->bigInteger('total_expenses')->nullable();
+            $table->bigInteger('total_cash_day')->nullable();            
         });
     }
 
