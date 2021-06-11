@@ -167,6 +167,8 @@ return [
          */
         Laraveles\Spanish\SpanishServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -232,6 +234,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Carbon' => 'Carbon\Carbon',
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+
     ],
 
 ];
