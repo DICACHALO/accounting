@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Expense
+    Actualizar gasto
 @endsection
 
 @section('content')
     <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4 container-fluid">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Expense</span>
+                        <span class="card-title">Actualizar gasto</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('expenses.update', $expense->id) }}"  role="form" enctype="multipart/form-data">

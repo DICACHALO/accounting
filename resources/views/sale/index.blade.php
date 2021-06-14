@@ -48,8 +48,8 @@
                                 <tbody>
                                     @foreach ($sales as $sale)
                                         <tr>                                           
-											<td>{{ $sale->date_sale }}</td>
-											<td>{{ $sale->price_sale }}</td>
+											<td>{{ \Carbon\Carbon::parse($sale->date_sale)->format('d-m-Y') }}</td>
+											<td>${{ number_format($sale->price_sale) }}</td>
 											<td>{{ $sale->type_sale }}</td>
 											
 

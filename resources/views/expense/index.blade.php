@@ -40,24 +40,21 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>                                        
-										<th>Fecha</th>
-										
+										<th>Fecha</th>						
 										<th>Proveedor</th>
 										<th>Valor</th>
 										<th>Tipo</th>
 										<th>Número de recibo</th>
-										
-
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($expenses as $expense)
                                         <tr>                                            
-											<td>{{ $expense->date_expense }}</td>
+											<td>{{ \Carbon\Carbon::parse($expense->date_expense)->format('d-m-Y') }}</td>
 											
 											<td>{{ $expense->merchandise_supplier }}</td>
-											<td>{{ $expense->price_expense }}</td>
+											<td>${{ number_format($expense->price_expense) }}</td>
 											<td>{{ $expense->type_expense }}</td>
 											<td>{{ $expense->receipt_number }}</td>
 											

@@ -55,11 +55,11 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            <!-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif-->
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -90,8 +90,16 @@
         </main>
     </div>
 
-<footer class="text-center text-lg-start bg-light text-muted"> 
-    <p align="center" > @ Soluciones Primaro S.A.S. - 2021 </p> 
+<footer style="position: absolute;
+  clear: both;
+  margin-top: 0px;
+  padding-top: 0px;
+  overflow: visible;
+  top:93%; left: 40%; text-align: center;">  
+    
+   
+     2021 - @ SOLUCIONES PRIMARO S.A.S.
+    
 </footer>
 
 </body>
