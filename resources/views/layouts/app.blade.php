@@ -90,7 +90,7 @@
         </main>
     </div>
 
-<footer style="position: absolute;
+<!--<footer style="position: absolute;
   clear: both;
   margin-top: 0px;
   padding-top: 0px;
@@ -100,7 +100,7 @@
    
      2021 - @ SOLUCIONES PRIMARO S.A.S.
     
-</footer>
+</footer> -->
 
 </body>
 </html>
