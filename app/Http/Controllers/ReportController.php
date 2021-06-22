@@ -36,6 +36,7 @@ class ReportController extends Controller
 
         $temporary = DB::table('temporary')
         ->select('day_temporary', 'total_sale_cash', 'total_sale_baucher', 'total_sales', 'total_expense_cash', 'total_expense_baucher', 'total_expenses', 'total_cash_day')
+        ->orderBy('day_temporary')
         ->get();
 
         $total_sale_cash = DB::table('temporary')
