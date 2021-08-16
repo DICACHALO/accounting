@@ -69,9 +69,9 @@ class ReportController extends Controller
 
 
 
-        $pdf = PDF::loadView('pdf.report', compact('temporary', 'today', 'total_sale_cash', 'total_sale_baucher', 'total_sales', 'total_expense_cash', 'total_expense_baucher', 'total_expenses', 'total_cash_day'));
+        $pdf = PDF::loadView('pdf.report', compact('temporary', 'today', 'total_sale_cash', 'total_sale_baucher', 'total_sales', 'total_expense_cash', 'total_expense_baucher', 'total_expenses', 'total_cash_day', 'from', 'to'));
         return $pdf
-        ->setPaper('letter', 'landscape')
+        ->setPaper('letter')
         ->stream('report.pdf');  
 
     }

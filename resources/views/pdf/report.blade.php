@@ -2,6 +2,7 @@
 <html>
 <head>
 <style>
+
 .table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -37,48 +38,60 @@ footer {
 </style>
 </head>
 <body>
-<h2 align="center"> ALMACÉN INSTITUTO DE BELLEZA MARLENE</h2>
-<br>
-<h3>Reporte cuadre de caja</h3>
-<hr>
+    <div class="container">
+        
 
-<table>
- <tr>
-    <td>
-    <table><caption align="center"><strong> INFORME RESUMIDO </strong></caption>
+<h2 align="center"> ALMACÉN INSTITUTO DE BELLEZA MARLENE</h2>
+<h3 align="center">Reporte cuadre de caja</h3>
+<br>
+<h4> Informe resumido del {{$from}} al {{$to}}</h4>
+
+
+    <table align="center"><caption align="center"><strong> 1.VENTAS </strong></caption>
         <thead>
         <tr>
-            <th>Fecha del reporte</th>
-            <th>Total ventas en efectivo</th>
-            <th>Total ventas con baucher</th>
-            <th>Total ventas</th>
-            <th>Total gastos en efectivo</th>
-            <th>Total pagos por consignación</th>
-            <th>Total gastos</th>
-            <th>Efectivo en caja</th>
+            <th>Ventas en efectivo</th>
+            <th>Ventas con baucher</th>
+            <th>Total</th>
         </tr>
         </thead>
         <tbody>
             <tr>
-                <td>{{ $today }}</td>
-                <td>{{ number_format($total_sale_cash) }}</td>
-                <td>{{ number_format($total_sale_baucher) }}</td>
-                <td>{{ number_format($total_sales) }}</td>
-                <td>{{ number_format($total_expense_cash) }}</td>
-                <td>{{ number_format($total_expense_baucher) }}</td>
-                <td>{{ number_format($total_expenses) }}</td>
-                <td>{{ number_format($total_cash_day) }}</td>
-            </tr>
-         </tr>
+                <td> $ {{  number_format($total_sale_cash) }}</td>
+                <td> $ {{ number_format($total_sale_baucher) }}</td>
+                <td> $ {{ number_format($total_sales) }}</td>
+            </tr>         
         <tbody>
     </table>
-    </td>         
-   </tr>
-
-</table>
 
 <br>
-<hr>    
+
+    <table align="center"><caption align="center"><strong> 2. GASTOS </strong></caption>
+        <thead>
+        <tr>
+            <th>Efectivo</th>
+            <th>Consignación</th>
+            <th>Total</th>           
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> $ {{ number_format($total_expense_cash) }}</td>
+                <td> $ {{ number_format($total_expense_baucher) }}</td>
+                <td> $ {{ number_format($total_expenses) }}</td>              
+            </tr>
+    
+        <tbody>
+    </table>
+
+<br>   
+<p><strong>Saldo en efectivo: </strong>$ {{ number_format($total_cash_day) }}</p>
+<br>  
+
+<p> Elabora: __________________________________ &nbsp;&nbsp;&nbsp; 
+    Recibe:  __________________________________ </p>
+<br><br><br><br>
+    </div>
 
 <table>
  <tr>
@@ -94,7 +107,7 @@ footer {
             <th>Gastos en efectivo</th>
             <th>Pagos por consignación</th>
             <th>Total gastos</th>
-            <th>Efectivo en caja</th>
+            
         </tr>
         </thead>
         <tbody>
@@ -107,7 +120,7 @@ footer {
                 <td>{{ number_format($info->total_expense_cash) }}</td>
                 <td>{{ number_format($info->total_expense_baucher) }}</td>
                 <td>{{ number_format($info->total_expenses) }}</td>
-                <td>{{ number_format($info->total_cash_day) }}</td>
+                
             </tr>
 
         @endforeach
@@ -120,10 +133,8 @@ footer {
 </table>
 
 <footer>
-    <p> Elabora: ____________________________ &nbsp;&nbsp;&nbsp; 
-        Recibe: _____________________________ 
-    </p>
-
+    
+Fecha de impresión: {{ $today }}
     </footer>
 </body>
 </html>
