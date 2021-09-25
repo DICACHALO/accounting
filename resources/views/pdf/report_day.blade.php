@@ -46,7 +46,6 @@
         border: 1px solid #dddddd;
         text-align: left;
         padding: 8px;
-        width: 100px;
         }
 
         td {
@@ -77,10 +76,10 @@
             <caption align="center"><strong> VENTAS </strong></caption>
             <thead>
             <tr>
-                <th>Fecha</th>
-                <th>Tipo</th>
-                <th>Descripción</th>
-                <th>Valor</th>
+                <th style="width:10%;">Fecha</th>
+                <th style="width:15%;">Tipo</th>
+                <th style="width:60%;">Descripción</th>
+                <th style="width:15%;">Valor</th>
             </tr>
             </thead>
             <tbody>
