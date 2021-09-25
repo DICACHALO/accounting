@@ -77,20 +77,17 @@
                         </div>
                     </div>
                 </div>
+                <script type="text/javascript">
+                (function() {
+                    var form = document.getElementById('myForm');
+                    form.addEventListener('submit', function(event) {
+                    if (!confirm('¿Realmente deseas eliminar este registro?')) {
+                        event.preventDefault();}}, false);})();
+                </script>
                 <div class="mt-2 mx-auto">
                 {!! $sales->links('pagination::bootstrap-4') !!}
             </div>
             </div>
         </div>
     </div>
-     <script type="text/javascript">
-       (function() {
-         var form = document.getElementById('myForm');
-         form.addEventListener('submit', function(event) {
-           if (!confirm('¿Realmente deseas eliminar este registro?')) {
-             event.preventDefault();
-           }
-         }, false);
-       })();
-     </script>
 @endsection
