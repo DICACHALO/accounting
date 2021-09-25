@@ -29,3 +29,5 @@ Route::resource('/sales', SaleController::class)->middleware('auth');
 Route::resource('/expenses', ExpenseController::class)->middleware('auth');
 
 Route::post('report_total', [ReportController::class, 'exportpdf'])->name('report_total')->middleware('auth');
+
+Route::post('report_day', [ReportController::class, 'exportpdfday'])->name('report_day')->middleware('auth');

@@ -84,4 +84,39 @@ class ReportController extends Controller
         ->stream('report.pdf');  
 
     }
+
+    public function exportpdfday(Request $request)
+    {
+        $from = $request->get('date_ini');
+        $to = $request->get('date_finish');
+        $mytime = Carbon\Carbon::now();
+        
+        //$today = $mytime->toDateString();
+        $today = $mytime->format('d-m-Y');
+
+        // Recibimos un string y lo convertimos a fecha para el pdf
+        $fromNew = strtotime($from);
+        $fromDate = date('d-m-Y', $fromNew );
+
+        $toNew = strtotime($to);
+        $toDate = date('d-m-Y', $toNew );
+
+        $sales = DB::table('sales')
+        ->select('date_sale', 'price_sale', 'type_sale', 'description_sale')
+        ->whereBetween('date_sale', [$from, $to])
+        ->orderBy('date_sale')
+        ->get();
+
+        $expenses = DB::table('expenses')
+        ->select('date_expense', 'price_expense', 'type_expense', 'description_expense', 'invoice', 'merchandise_supplier', 'receipt_number')
+        ->whereBetween('date_expense', [$from, $to])
+        ->orderBy('date_expense')
+        ->get();
+
+        $pdf = PDF::loadView('pdf.report_day', compact('today','from','to','fromDate','toDate','sales', 'expenses'));
+        return $pdf
+        ->setPaper('letter', 'landscape')
+        ->stream('report.pdf');  
+
+    }
 }
