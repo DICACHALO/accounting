@@ -116,7 +116,7 @@ class ReportController extends Controller
         $pdf = PDF::loadView('pdf.report_day', compact('today','from','to','fromDate','toDate','sales', 'expenses'));
         return $pdf
         ->setPaper('letter', 'landscape')
-        ->stream('report.pdf');  
+        ->stream('reportday.pdf');  
 
     }
 }
