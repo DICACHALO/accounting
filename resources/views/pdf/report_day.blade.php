@@ -105,13 +105,13 @@
             <caption align="center"><strong> GASTOS </strong></caption>
             <thead>
             <tr>
-                <th>Fecha</th>
-                <th>Tipo</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Recibo</th>
-                <th>Factura</th>
-                <th>Valor</th>
+                <th style="width:10%;">Fecha</th>
+                <th style="width:10%;">Tipo</th>
+                <th style="width:20%;">Nombre</th>
+                <th style="width:20%;">Descripción</th>
+                <th style="width:10%;">Recibo</th>
+                <th style="width:10%;">Factura</th>
+                <th style="width:10%;">Valor</th>
             </tr>
             </thead>
             <tbody>
