@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="robots" content="NOINDEX,NOFOLLOW,NOARCHIVE,NOODP,NOSNIPPET">
+
+        <style type="text/css">
         @page {
             margin: 0cm 0cm;
             font-family: Arial;
@@ -45,13 +48,13 @@
         th {
         border: 1px solid #dddddd;
         text-align: left;
-        padding: 8px;
+        padding: 1px;
         }
 
         td {
         border: 1px solid #dddddd;
         text-align: left;
-        padding: 8px;
+        padding: 1px;
         }
 
         tr:nth-child(even) {
