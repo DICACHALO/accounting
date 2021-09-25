@@ -2,7 +2,37 @@
 <html>
     <head>
         <style>
+        @page {
+            margin: 0cm 0cm;
+            font-family: Arial;
+        }
+        body {
+            margin: 3cm 2cm 2cm;
+        }
 
+        header {
+            position: fixed;
+            top: 0cm;
+            left: 0cm;
+            right: 0cm;
+            height: 2cm;
+            color: black;
+            text-align: center;
+            line-height: 30px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0cm;
+            left: 0cm;
+            right: 0cm;
+            height: 2cm;
+            color: black;
+            text-align: center;
+            line-height: 35px;
+        }
+        .page-break {
+            page-break-after: always;
+        }
         table {
         font-family: arial, sans-serif;
         font-size: 11px;
@@ -29,20 +59,17 @@
         background-color: #dddddd;
         }
 
-        footer {
-            color: black;
-            text-align: center;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 40px;
-                }
         </style>
     </head>
 <body>
-<div class="container">
+<header>
 <h2 align="center"> ALMACÉN INSTITUTO DE BELLEZA MARLENE</h2>
 <strong> Informe detallado del {{$fromDate}} al {{$toDate}} </strong>
+</header>
+<main>
+    
+
+<div class="container">
     <table>
     <tr>
         <td>
@@ -71,7 +98,7 @@
     </td>
     </tr>
     </table>
-
+<div class="page-break"></div>
     <table>
     <tr>
         <td>
@@ -106,6 +133,7 @@
     </td>
     </tr>
     </table>
+    </main>
     <footer>
     Fecha de impresión: {{ $today }}
     </footer>
