@@ -18,7 +18,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::orderBy('date_sale', 'DESC')->paginate(10);
+        $sales = Sale::orderBy('date_sale', 'DESC')->paginate(30);
 
         return view('sale.index', compact('sales'))
             ->with('i', (request()->input('page', 1) - 1) * $sales->perPage());

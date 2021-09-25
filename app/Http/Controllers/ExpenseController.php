@@ -18,7 +18,7 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $expenses = Expense::orderBy('date_expense', 'DESC')->paginate(10);
+        $expenses = Expense::orderBy('date_expense', 'DESC')->paginate(30);
 
         return view('expense.index', compact('expenses'))
             ->with('i', (request()->input('page', 1) - 1) * $expenses->perPage());
