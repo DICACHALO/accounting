@@ -5,6 +5,7 @@
 
         table {
         font-family: arial, sans-serif;
+        font-size: 11px;
         border-collapse: collapse;
         width: 100%;
         margin-top:20px;
