@@ -14,7 +14,16 @@ class ReportController extends Controller
         $from = $request->get('date_ini');
         $to = $request->get('date_finish');
         $mytime = Carbon\Carbon::now();
-        $today = $mytime->toDateString();
+        
+        //$today = $mytime->toDateString();
+        $today = $mytime->format('d-m-Y');
+
+        // Recibimos un string y lo convertimos a fecha para el pdf
+        $fromNew = strtotime($from);
+        $fromDate = date('d-m-Y', $fromNew );
+
+        $toNew = strtotime($to);
+        $toDate = date('d-m-Y', $toNew );
 
         DB::statement("DELETE from temporary");
         DB::statement("INSERT INTO temporary(day_temporary, total_sale_cash, total_sale_baucher) (SELECT day_sale_cash, total_sale_cash, total_sale_baucher FROM total_sales_view WHERE day_sale_cash BETWEEN '$from' AND '$to')");
@@ -69,7 +78,7 @@ class ReportController extends Controller
 
 
 
-        $pdf = PDF::loadView('pdf.report', compact('temporary', 'today', 'total_sale_cash', 'total_sale_baucher', 'total_sales', 'total_expense_cash', 'total_expense_baucher', 'total_expenses', 'total_cash_day', 'from', 'to'));
+        $pdf = PDF::loadView('pdf.report', compact('temporary', 'today', 'total_sale_cash', 'total_sale_baucher', 'total_sales', 'total_expense_cash', 'total_expense_baucher', 'total_expenses', 'total_cash_day', 'from', 'to', 'fromDate', 'toDate'));
         return $pdf
         ->setPaper('letter')
         ->stream('report.pdf');  

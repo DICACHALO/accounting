@@ -44,7 +44,7 @@ footer {
 <h2 align="center"> ALMACÉN INSTITUTO DE BELLEZA MARLENE</h2>
 <h3 align="center">Reporte cuadre de caja</h3>
 <br>
-<h4> Informe resumido del {{ $fromDate }} al {{ $toDate }}</h4>
+<h4> Informe resumido del {{$from}} al {{$to}}</h4>
 
 
     <table align="center"><caption align="center"><strong> 1.VENTAS </strong></caption>
@@ -92,6 +92,45 @@ footer {
     Recibe:  __________________________________ </p>
 <br><br><br><br>
     </div>
+
+<table>
+ <tr>
+    <td>
+     <table>
+        <caption align="center"><strong> INFORME DETALLADO </strong></caption>
+        <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Ventas en efectivo</th>
+            <th>Ventas con baucher</th>
+            <th>Total ventas</th>
+            <th>Gastos en efectivo</th>
+            <th>Pagos por consignación</th>
+            <th>Total gastos</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ($temporary as $info)
+            <tr>
+                <td>{{ $info->day_temporary }}</td>
+                <td>{{ number_format($info->total_sale_cash) }}</td>
+                <td>{{ number_format($info->total_sale_baucher) }}</td>
+                <td>{{ number_format($info->total_sales) }}</td>
+                <td>{{ number_format($info->total_expense_cash) }}</td>
+                <td>{{ number_format($info->total_expense_baucher) }}</td>
+                <td>{{ number_format($info->total_expenses) }}</td>
+                
+            </tr>
+
+        @endforeach
+         </tr>
+        <tbody>
+    </table>
+   </td>         
+   </tr>
+
+</table>
 
 <footer>
     
