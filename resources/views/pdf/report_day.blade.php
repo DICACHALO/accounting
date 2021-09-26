@@ -60,10 +60,12 @@
         tr:nth-child(even) {
         background-color: #dddddd;
         }
-
+        thead:before, thead:after { display: none; }
         </style>
     </head>
 <body>
+
+</script> 
 <header>
 <h2 align="center"> ALMACÉN INSTITUTO DE BELLEZA MARLENE</h2>
 <strong> Informe detallado del {{$fromDate}} al {{$toDate}} </strong>
